@@ -1,0 +1,246 @@
+.race-track {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+}
+
+/* ── Countdown overlay ──────────────────────────────────────── */
+.race-countdown-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,26,26,0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  gap: 16px;
+}
+
+.race-countdown-overlay p {
+  color: rgba(255,255,255,0.6);
+  font-size: 1.1rem;
+}
+
+.race-countdown-num {
+  font-size: clamp(5rem, 15vw, 10rem);
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #fff;
+  line-height: 1;
+  animation: countPop 0.4s ease both;
+}
+
+.race-countdown-go {
+  color: var(--accent);
+  animation: goPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes countPop {
+  from { transform: scale(1.5); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+@keyframes goPop {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1.1); opacity: 1; }
+}
+
+/* ── Leaderboard ────────────────────────────────────────────── */
+.race-leaderboard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 24px 28px;
+}
+
+.race-lb-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.race-tracks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.race-player-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.race-player-row--me .race-player-name {
+  color: var(--accent);
+}
+
+.race-player-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 180px;
+}
+
+.race-rank {
+  font-size: 1rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--muted-light);
+  min-width: 18px;
+}
+
+.race-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.race-player-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.race-player-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.race-player-wpm {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+}
+
+.race-bar-wrap {
+  flex: 1;
+  height: 14px;
+  background: var(--border-light);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.race-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 0.12s ease;
+  position: absolute;
+  left: 0; top: 0;
+}
+
+.race-finished-flag {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+}
+
+.race-pct {
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--muted);
+  min-width: 38px;
+  text-align: right;
+}
+
+/* ── Stats bar ──────────────────────────────────────────────── */
+.race-stats-bar {
+  display: flex;
+  gap: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 24px;
+  flex-wrap: wrap;
+}
+
+.race-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.race-stat-val {
+  font-size: 1.4rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--ink);
+  line-height: 1;
+}
+
+.race-stat-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ── Passage ────────────────────────────────────────────────── */
+.race-passage-wrap {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: border-color var(--transition);
+}
+
+.race-passage-wrap:focus { border-color: var(--accent); outline: none; }
+
+.race-passage {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  line-height: 2;
+  letter-spacing: 0.02em;
+  word-break: break-word;
+}
+
+/* ── Finish ─────────────────────────────────────────────────── */
+.race-finished-overlay {
+  display: flex;
+  justify-content: center;
+}
+
+.race-finished-badge {
+  background: var(--success-bg);
+  border: 1.5px solid #c3ddc9;
+  border-radius: var(--radius-lg);
+  padding: 16px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.race-finished-wpm {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .race-player-left { min-width: 140px; }
+  .race-passage { font-size: 0.95rem; }
+}

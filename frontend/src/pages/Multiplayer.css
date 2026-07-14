@@ -1,0 +1,39 @@
+.multi-page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.multi-page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.multi-page-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.multi-disconnect-banner {
+  max-width: 900px;
+  margin: 12px auto 0;
+  padding: 0 40px;
+  background: rgba(230,57,70,0.08);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  animation: fadeUp 0.3s ease;
+}
+
+@media (max-width: 600px) {
+  .multi-page-nav { padding: 16px 20px 0; }
+}

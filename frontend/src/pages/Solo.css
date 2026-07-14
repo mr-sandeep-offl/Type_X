@@ -1,0 +1,25 @@
+.solo-page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.solo-page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px 0;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.solo-page-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .solo-page-nav { padding: 16px 20px 0; }
+}

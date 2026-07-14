@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: typeclash-backend
+    runtime: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: FRONTEND_URL
+        value: https://type-x-two.vercel.app

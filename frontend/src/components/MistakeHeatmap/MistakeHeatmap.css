@@ -1,0 +1,88 @@
+.heatmap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+}
+
+.heatmap-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.heatmap-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.heatmap-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.heatmap-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.heatmap-key {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 44px;
+  text-align: center;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+.heatmap-bar-track {
+  flex: 1;
+  height: 10px;
+  background: var(--border-light);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.heatmap-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-dark), var(--accent));
+  border-radius: 100px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: barIn 0.6s ease both;
+}
+
+@keyframes barIn {
+  from { width: 0 !important; }
+}
+
+.heatmap-count {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  min-width: 28px;
+  text-align: right;
+}
+
+/* ── Empty state ─────────────────────────────────────────────── */
+.heatmap-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 24px;
+  background: var(--success-bg);
+  border: 1px solid #c3ddc9;
+  border-radius: var(--radius-lg);
+  color: var(--success);
+}
+
+.heatmap-empty span { font-size: 2rem; }
+.heatmap-empty p { font-size: 0.9rem; font-weight: 600; }
