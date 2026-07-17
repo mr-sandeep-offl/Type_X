@@ -2,7 +2,7 @@
 
 > **Real-time multiplayer typing races & solo speed tests** — competitive, fast, and polished.
 
-![TypeClash Banner](./docs/banner.png)
+![TypeClash Banner](/banner.png)
 
 ---
 
