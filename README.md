@@ -1,78 +1,48 @@
-# TypeClash ⌨️🏁
+# TypeClash
 
-> **Real-time multiplayer typing races & solo speed tests** — competitive, fast, and polished.
+A real-time multiplayer typing game with solo speed tests. TypeClash is built to provide a fast, competitive, and responsive typing experience using React, Node.js, Express, and Socket.io.
 
-![TypeClash Banner](/banner.png)
+## Features
 
----
+### Solo Mode
 
-## ✨ Features
+- Live WPM and accuracy tracking
+- Streak multiplier system
+- Ghost replay to race against previous attempts
+- Mistake heatmap
+- Custom text practice
+- Instant typing feedback
 
-### 🎯 Solo Mode
+### Multiplayer Mode
 
-- Live **WPM** & **Accuracy** tracking (updates every 250ms)
-- 🔥 Streak multiplier (×1 → ×5 combo system)
-- 👻 Ghost Replay — race against your previous attempt
-- 📊 Mistake Heatmap showing your most mistyped characters
-- 📝 Custom Text mode to practice with any passage
-- ⚡ Smooth typing engine with instant feedback
+- 2–4 player real-time races
+- 6-character room codes
+- Synchronized countdown
+- Live leaderboard
+- Instant rematch
+- Automatic disconnect handling
 
----
-
-### 🌐 Multiplayer Mode (2–4 Players)
-
-- 🔗 6-character room codes for quick sharing
-- 📡 Real-time race progress powered by Socket.io
-- ⏱️ Synchronized 3-2-1 countdown
-- 🏆 Live leaderboard with WPM & completion %
-- 🔄 Instant rematch without creating another room
-- 💥 Automatic disconnect handling
-
----
-
-## 🛠 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
-|-------|------------|
+| ------ | ---------- |
 | Frontend | React 19 + Vite |
-| Styling | Vanilla CSS + CSS Variables |
-| Routing | React Router v7 |
 | Backend | Node.js + Express |
 | Real-time | Socket.io |
-| Fonts | Space Grotesk + JetBrains Mono |
+| Routing | React Router v7 |
+| Styling | Vanilla CSS |
+| Fonts | Space Grotesk, JetBrains Mono |
 
----
-
-# 📂 Project Structure
+## Project Structure
 
 ```text
-Type_X/
-│
+TypeClash/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │   │   ├── Hero/
-│   │   │   ├── ModeSelect/
-│   │   │   ├── SoloTest/
-│   │   │   ├── MistakeHeatmap/
-│   │   │   ├── MultiplayerRoom/
-│   │   │   ├── RaceTrack/
-│   │   │   └── ResultsScreen/
-│   │   │
 │   │   ├── hooks/
-│   │   │   ├── useTypingEngine.js
-│   │   │   ├── useSocket.js
-│   │   │   └── useGhostReplay.js
-│   │   │
 │   │   ├── pages/
-│   │   │   ├── Landing.jsx
-│   │   │   ├── Solo.jsx
-│   │   │   └── Multiplayer.jsx
-│   │   │
 │   │   └── utils/
-│   │       ├── wordBank.js
-│   │       └── stats.js
-│   │
 │   └── package.json
 │
 ├── backend/
@@ -80,51 +50,42 @@ Type_X/
 │   │   ├── server.js
 │   │   ├── roomManager.js
 │   │   └── passageGenerator.js
-│   │
 │   └── package.json
 │
 └── README.md
 ```
 
----
+## Getting Started
 
-# 🚀 Getting Started
+### Prerequisites
 
-## Prerequisites
+- Node.js 18 or later
+- npm 9 or later
 
-- Node.js **18+**
-- npm **9+**
-
----
-
-## 1️⃣ Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/typeclash.git
 cd typeclash
 ```
 
----
+### Install Dependencies
 
-## 2️⃣ Install Dependencies
-
-### Backend
+Backend
 
 ```bash
 cd backend
 npm install
 ```
 
-### Frontend
+Frontend
 
 ```bash
 cd ../frontend
 npm install
 ```
 
----
-
-## 3️⃣ Configure Environment
+### Environment Variables
 
 Create a file named:
 
@@ -138,60 +99,50 @@ Add:
 VITE_BACKEND_URL=http://localhost:3001
 ```
 
----
+### Run the Project
 
-## 4️⃣ Run the Application
-
-Open **two terminals**.
-
-### Terminal 1 (Backend)
+Start the backend:
 
 ```bash
 cd backend
 npm start
 ```
 
-Runs on:
+Backend runs at:
 
 ```text
 http://localhost:3001
 ```
 
----
-
-### Terminal 2 (Frontend)
+Open another terminal and start the frontend:
 
 ```bash
 cd frontend
 npm run dev
 ```
 
-Runs on:
+Frontend runs at:
 
 ```text
 http://localhost:5173
 ```
 
-Open:
+Open the application in your browser.
 
-```text
-http://localhost:5173
-```
+To test multiplayer mode, open the app in two browser windows and join the same room.
 
-To test multiplayer, open the application in two browser windows and join the same room.
+## Deployment
 
----
+### Frontend
 
-# 🌍 Deployment
-
-## Frontend (Vercel)
+Build the project:
 
 ```bash
 cd frontend
 npm run build
 ```
 
-Deploy the generated `dist/` folder to **Vercel**.
+Deploy the generated `dist` folder to Vercel.
 
 Set:
 
@@ -199,71 +150,49 @@ Set:
 VITE_BACKEND_URL=https://your-backend-url.com
 ```
 
----
+### Backend
 
-## Backend (Railway / Render)
+Deploy the `backend` folder to Railway, Render, or another Node.js hosting service.
 
-1. Connect your GitHub repository.
-2. Set the root directory to:
-
-```text
-backend/
-```
-
-3. Start command:
+Start command:
 
 ```bash
 npm start
 ```
 
-The hosting platform automatically provides the `PORT` environment variable.
+The hosting platform will automatically provide the `PORT` environment variable.
 
-After deployment, update the frontend's `VITE_BACKEND_URL` to point to your deployed backend.
+## Socket Events
 
----
+| Event | Description |
+| ------ | ----------- |
+| room:create | Create a room |
+| room:join | Join a room |
+| room:state | Receive room state |
+| room:ready | Toggle ready status |
+| room:start | Start the race |
+| race:countdown | Countdown before race |
+| race:go | Start race |
+| race:progress | Update player progress |
+| race:update | Broadcast progress |
+| race:finish | Finish race |
+| race:results | Final leaderboard |
+| race:rematch | Start another race |
 
-# 🎨 Design System
+## Future Improvements
 
-| Variable | Value | Usage |
-|----------|-------|-------|
-| `--accent` | `#E63946` | Primary buttons & highlights |
-| `--bg` | `#FFFFFF` | Background |
-| `--bg-card` | `#F7F2F2` | Cards & typing area |
-| `--ink` | `#1A1A1A` | Main text |
-| `--muted` | `#8C8C8C` | Secondary text |
-| `--success` | `#4A7C59` | Success state |
+- Global matchmaking
+- Player profiles
+- Online leaderboards
+- Achievement system
+- Multiple themes
+- Mobile optimization
+- Sound effects
 
----
+## License
 
-# 🔌 Socket.io Events
-
-| Event | Direction | Description |
-|--------|-----------|-------------|
-| `room:create` | Client → Server | Create a room |
-| `room:join` | Client → Server | Join using room code |
-| `room:state` | Server → Client | Current room snapshot |
-| `room:ready` | Client → Server | Toggle ready status |
-| `room:start` | Client → Server | Host starts the race |
-| `race:countdown` | Server → Client | Countdown before race |
-| `race:go` | Server → Client | Start race & send passage |
-| `race:progress` | Client → Server | Send player progress |
-| `race:update` | Server → Client | Broadcast player updates |
-| `race:finish` | Client → Server | Player completed race |
-| `race:results` | Server → Client | Final leaderboard |
-| `race:rematch` | Client → Server | Start another round |
+This project is licensed under the MIT License.
 
 ---
 
-# 🚀 Future Improvements
-
-- 👥 Global matchmaking
-- 🏅 Player profiles & statistics
-- 🌎 Online leaderboards
-- 🎖 Achievement system
-- 🎨 Multiple themes
-- 📱 Fully responsive mobile gameplay
-- 🔊 Sound effects & keyboard feedback
-
----
-
-## ⭐ If you enjoyed this project, consider giving it a star on GitHub!
+If you found this project useful, consider giving it a ⭐ on GitHub.
