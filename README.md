@@ -1,5 +1,17 @@
-# TypeClash
+# ⌨️ TypeClash
 
+A real-time, high-performance multiplayer typing application built to deliver a competitive, responsive, and tactile typing experience. Test your raw speed in Solo Mode against your past self, or challenge friends in rapid-fire multiplayer lobbies.
+
+```text
+       .________________________________________________.
+       | [Esc] [F1][F2][F3][F4] [F5][F6][F7][F8] [Reset] |
+       |                                                |
+       |  (q) (w) (e) (r) (t) (y) (u) (i) (o) (p) (<-)  |
+       |   (a) (s) (d) (f) (g) (h) (j) (k) (l) (; )     |
+       |    (z) (x) (c) (v) (b) (n) (m) (, ) (. )       |
+       |      [_______________________________]         |
+       `________________________________________________'
+              \___TYPE_FAST___/ \___CLASH_HARD___/
 A real-time multiplayer typing game with solo speed tests. TypeClash is built to provide a fast, competitive, and responsive typing experience using React, Node.js, Express, and Socket.io.
 
 ## Features
